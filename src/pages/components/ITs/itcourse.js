@@ -5,11 +5,12 @@ import Programming from '@/pages/images/programming.png';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Select } from 'flowbite-react';
 import Cards from './itcard'
-
+import MyNav from '@/pages/components/Navbar' 
+import MyFooter from '@/pages/components/footer'  
 function cscourse() {
     return (
         <>
-       
+       <MyNav/>
             <div className=''>
                 <div className="hero h-96 md:h-[15em]   " style={{ backgroundImage: `url(${Programming.src})` }}>
                     <div className="hero-overlay bg-opacity-60"></div>
@@ -49,7 +50,8 @@ function cscourse() {
 
 
 
-            </div> 
+            </div> <MyFooter/> 
+
         </>
 
     )

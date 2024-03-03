@@ -1,6 +1,6 @@
 // import React from 'react'
 import EN from '@/pages/images/Software-engineer.png'
-
+import Link from 'next/link';
 // // import Data from '../images/Datastructure.png'
 import Network from "@/pages/images/network.png"
 import Parallel from "@/pages/images/parallel-programming.webp"
@@ -13,7 +13,7 @@ function cards() {
   return (
     <div className='flex item-center justify-center  mx-auto gap-20 container group'>
            <div className='grid grid-cols-1 gap-12  md:grid-cols-2 lg:grid-cols-3'>
-        <div className='card bg-white group-hover:blur-sm shadow-xl shadow-blue-100/50  hover:!blur-none group-hover:scale-[0.9] hover:!scale-100 cursor-pointer'> 
+        <Link href='/components/Course' className='card bg-white group-hover:blur-sm shadow-xl shadow-blue-100/50  hover:!blur-none group-hover:scale-[0.9] hover:!scale-100 cursor-pointer'> 
         <div className='p-5 flex flex-col'>
           <div className='rounded-xl overflow-hidden'>
           <img className=' ' src={Network.src} alt="En" />
@@ -26,7 +26,7 @@ function cards() {
        
         </div>
 
-        </div>
+        </Link>
         <div className='card bg-white group-hover:blur-sm shadow-xl shadow-blue-100/50  hover:!blur-none group-hover:scale-[0.9] hover:!scale-100 cursor-pointer'> 
         <div className='p-5 flex flex-col'>
           <div className='rounded-xl overflow-hidden'>

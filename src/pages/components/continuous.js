@@ -6,9 +6,10 @@ const includedFeatures = [
   'การออกแบบเนื้อหา',
   'การวางแผนระบบนำทาง',
 ]
-import Accordion from "@/pages/data/Adcordioncourse"
+import Accordion from "@/pages/data/Acconlate"
 import MyNav from '@/pages/components/Navbar' 
 import MyFooter from '@/pages/components/footer'  
+import Link from 'next/link';
 
 export default function Coursedetail() {
   return (
@@ -38,6 +39,11 @@ export default function Coursedetail() {
                 </li>
               ))}
             </ul>
+            <div class=" text-base font-semibold mt-10 leading-7">
+                    <div class="w-full bg-gray-200 rounded-full ">
+                      <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full w-[5em]" > 10%</div>
+                    </div>
+                  </div>
           </div>
 
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
@@ -47,6 +53,7 @@ export default function Coursedetail() {
               </div>
             </div>
           </div>
+          
         </div>
 
         <div className='bg-white  shadow-xl shadow-blue-100/50  mt-10 p-8 '> 

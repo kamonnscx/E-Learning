@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
-import Slider from './Slider'
-import Cards from './Cards'
+
+import Cards from './cardlate'
 import EN from '../images/Software-engineer.png'
 import styles from '@/styles/cardstyle.module.css'
 import 'swiper/css';
@@ -11,7 +11,7 @@ import Parallel from "../images/parallel-programming.webp"
 import Xml from "../images/XML.png"
 import Accordion from "@/pages/data/Accordion"
 import MyNav from '@/pages/components/Navbar' 
-
+import MyFooter from '@/pages/components/footer'  
 export default function Home() {
   return (
     <>
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       </div>
 
-
+      <MyFooter/> 
 
     </>
   )

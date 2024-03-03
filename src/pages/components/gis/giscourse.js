@@ -5,10 +5,12 @@ import Gis from '@/pages/images/gis.png';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Select } from 'flowbite-react';
 import Cards from './giscard'
-
+import MyNav from '@/pages/components/Navbar' 
+import MyFooter from '@/pages/components/footer'  
 function cscourse() {
     return (
         <>
+        <MyNav/>
          <div className=''>
                 <div className="hero h-96 md:h-[15em]   " style={{ backgroundImage: `url(${Gis.src})` }}>
                     <div className="hero-overlay "></div>
@@ -39,6 +41,8 @@ function cscourse() {
                     </div>
                 </div>
             </div> 
+            <MyFooter/> 
+
         </>
 
     )

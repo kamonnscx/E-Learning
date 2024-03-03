@@ -1,102 +1,135 @@
-import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
-import { useContext, createContext, useState } from "react"
+import { useState } from 'react'
+import MyYoshi from '../images/Yoshi.png';
+import Home from '../images/home.png';
+import { ChevronDoubleLeftIcon,HomeIcon ,ArchiveBoxXMarkIcon,PencilSquareIcon,DocumentPlusIcon } from "@heroicons/react/24/outline";
+import HomeAdmin from './HomeAdmin';
+import Link from 'next/link';
 
-const SidebarContext = createContext()
+const SidebarContext = () => {
+  const [open, setOpen] = useState(true);
+  // const Menus = [
+  //   { title: "หน้าหลัก", src: "home", link: "/" },
+  //   { title: "เพิ่มวิชาเรียน", src: "Chat", link: "/components/" },
+  //   { title: "แก้ไขวิชาเรียน", src: "User", link: "/edit-course" },
+  //   { title: "ลบวิชาเรียน", src: "User", link: "/delete-course" },
+  // ];
 
-export default function Sidebar({ children }) {
-  const [expanded, setExpanded] = useState(true)
-  
   return (
-    <aside className="h-screen">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
-        <div className="p-4 pb-2 flex justify-between items-center">
-          <img
-            src="https://img.logoipsum.com/243.svg"
-            className={`overflow-hidden transition-all ${
-              expanded ? "w-32" : "w-0"
-            }`}
-            alt=""
-          />
-          <button
-            onClick={() => setExpanded((curr) => !curr)}
-            className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
-          >
-            {expanded ? <ChevronFirst /> : <ChevronLast />}
-          </button>
-        </div>
+    <>
+      <div className='flex bg-[#0F75BE] '>
+        <div className={`${open ? "w-72" : "w-20 "
+          } bg-[#1373BB] h-screen p-5  pt-8 relative duration-300`}>
 
-        <SidebarContext.Provider value={{ expanded }}>
-          <ul className="flex-1 px-3">{children}</ul>
-        </SidebarContext.Provider>
+          <ChevronDoubleLeftIcon className={`absolute cursor-pointer -right-3 top-12 w-7  text-white
+            ${!open && "rotate-180"}`}
+            onClick={() => setOpen(!open)} />
 
-        <div className="border-t flex p-3">
-          <img
-            src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
-            alt=""
-            className="w-10 h-10 rounded-md"
-          />
-          <div
-            className={`
-              flex justify-between items-center
-              overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}
-          `}
-          >
-            <div className="leading-4">
-              <h4 className="font-semibold">John Doe</h4>
-              <span className="text-xs text-gray-600">johndoe@gmail.com</span>
-            </div>
-            <MoreVertical size={20} />
+          <div className="flex gap-x-4 items-center">
+            <img
+              src={MyYoshi.src}
+              className={`cursor-pointer rounded-full w-10 duration-500  ${open && "rotate-[360deg]"
+                }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-lg duration-200 ${!open && "scale-0"
+                }`}
+            >
+              Kamon eiei
+              <p className='text-sm text-gray-300 '>Admin</p>
+            </h1>
           </div>
+          <ul className="pt-6">
+            <Link href='/components/Sidebar'>
+              <li
+
+                className={"flex hover:bg-blue-400  p-2  cursor-pointer  rounded-md   text-white text-sm items-center gap-x-4 "}
+              >
+                <HomeIcon className="h-8 w-8 text-white" />
+
+                {/* <img
+                  src={MyYoshi.src}
+                  className={`cursor-pointer rounded-full w-10 duration-500  ${open && "rotate-[360deg]  "
+                    }`}
+                /> */}
+                <span className={`${!open && "hidden"} origin-left text-[1.2em] duration-200`}>
+                  <p className='text-lg mt-2  text-white '>หน้าหลัก</p>
+                </span>
+
+
+              </li>
+            </Link>
+
+            <Link href='/components/Addcourse'>
+              <li
+
+                className={"flex hover:bg-blue-400  p-2  cursor-pointer  rounded-md   text-white text-sm items-center gap-x-4 "}
+              >
+                <DocumentPlusIcon  className="h-8 w-8 text-gray-200" />
+
+                {/* <img
+                  src={MyYoshi.src}
+                  className={`cursor-pointer rounded-full w-10 duration-500  ${open && "rotate-[360deg]  "
+                    }`}
+                /> */}
+                <span className={`${!open && "hidden"} origin-left text-[1.2em] duration-200`}>
+                  <p className='text-[1em] mt-2  text-gray-200'>เพิ่มรายวิชา</p>
+                </span>
+
+
+              </li>
+            </Link>
+            <Link href='/components/Edit'>
+              <li
+
+                className={"flex hover:bg-blue-400  p-2  cursor-pointer  rounded-md   text-white text-sm items-center gap-x-4 "}
+              >
+                <PencilSquareIcon className="h-8 w-8text-gray-200" />
+
+                {/* <img
+                  src={MyYoshi.src}
+                  className={`cursor-pointer rounded-full w-10 duration-500  ${open && "rotate-[360deg]  "
+                    }`}
+                /> */}
+                <span className={`${!open && "hidden"} origin-left text-[1.2em] duration-200`}>
+                  <p className='text-[1em] mt-2  text-gray-200'>แก้ไขรายวิชา</p>
+                </span>
+
+
+              </li>
+            </Link>
+            <Link href='/components/Delete'>
+              <li
+
+                className={"flex hover:bg-blue-400  p-2  cursor-pointer  rounded-md   text-white text-sm items-center gap-x-4 "}
+              >
+                <ArchiveBoxXMarkIcon className="h-8 w-8 text-gray-200" />
+
+                {/* <img
+                  src={MyYoshi.src}
+                  className={`cursor-pointer rounded-full w-10 duration-500  ${open && "rotate-[360deg]  "
+                    }`}
+                /> */}
+                <span className={`${!open && "hidden"} origin-left text-[1.2em] duration-200`}>
+                  <p className='text-[1em] mt-2  text-gray-200'>ลบรายวิชา</p>
+                </span>
+
+
+              </li>
+            </Link>
+
+          </ul>
+
+
         </div>
-      </nav>
-    </aside>
+
+        <div className=' flex-1 '>
+          <HomeAdmin />
+        </div>
+      </div>
+
+    </>
+
   )
 }
 
-export function SidebarItem({ icon, text, active, alert }) {
-  const { expanded } = useContext(SidebarContext)
-  
-  return (
-    <li
-      className={`
-        relative flex items-center py-2 px-3 my-1
-        font-medium rounded-md cursor-pointer
-        transition-colors group
-        ${
-          active
-            ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600"
-        }
-    `}
-    >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all ${
-          expanded ? "w-52 ml-3" : "w-0"
-        }`}
-      >
-        {text}
-      </span>
-      {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
-            expanded ? "" : "top-2"
-          }`}
-        />
-      )}
-
-      {!expanded && (
-        <div
-          className={`
-          absolute left-full rounded-md px-2 py-1 ml-6
-          bg-indigo-100 text-indigo-800 text-sm
-          invisible opacity-20 -translate-x-3 transition-all
-          group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      `}
-        >
-          {text}
-        </div>
-      )}
-    </li>
-  )
-}
+export default SidebarContext
